@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+	  <div id="timer">
+		15
+	  </div>
+	  <div id="domande">
+		<h4>Estote</h4>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda1" id="domanda1a">
+			<label class="form-check-label" for="domanda1a">
+			Carati
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda1" id="domanda1b" value="true">
+			<label class="form-check-label" for="domanda1b">
+			Parati
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda1" id="domanda1c">
+			<label class="form-check-label" for="domanda1c">
+			!
+			</label>
+		</div>
+
+		<h4>L'agesci è stata fondata nell'anno...</h4>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda2" id="domanda2a">
+			<label class="form-check-label" for="domanda2a">
+			1976
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda2" id="domanda2b">
+			<label class="form-check-label" for="domanda2b">
+			1969
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda2" id="domanda2c" value="true">
+			<label class="form-check-label" for="domanda2c">
+			1974
+			</label>
+		</div>
+
+		<h4>Il nome completo del fondatore dello scoutismo, a noi comunemente noto come BP, è</h4>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda3" id="domanda3a" value="true">
+			<label class="form-check-label" for="domanda3a">
+				Sir Robert Stephenson Smyth Baden-Powell, primo Barone Baden-Powell di Gilwell 
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda3" id="domanda3b">
+			<label class="form-check-label" for="domanda3b">
+				Sir Robert Stephenson Smyth John Baden-Powell, Barone Baden-Powell di Gilwell 
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda3" id="domanda3c">
+			<label class="form-check-label" for="domanda3c">
+				Sir Robert Stephenson Smyth Baden-Powell, Barone di Gilwell 
+			</label>
+		</div>
+
+		<h4>Lo scoutismo basa la sua proposta educativa sui quattro punti di Baden Powell. Questi sono:</h4>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda4" id="domanda4a">
+			<label class="form-check-label" for="domanda4a">
+				Formazione del carattere, salute e forza fisica, abilità mentale, servizio del prossimo
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda4" id="domanda4b">
+			<label class="form-check-label" for="domanda4b">
+				Formazione del carattere, salute e forza fisica, abilità manuale, servizio di prossimità
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda4" id="domanda4c" value="true">
+			<label class="form-check-label" for="domanda4c">
+				Formazione del carattere, salute e forza fisica, abilità manuale, servizio del prossimo
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="domanda4" id="domanda4d">
+			<label class="form-check-label" for="domanda4d">
+				Formazione del carattere, salute e forza fisica, abilità manuale, spiritualità
+			</label>
+		</div>
+
+		<button type="button" class="btn btn-danger" onclick="invia()">Invia?</button>
+
+		</div>
+		<div id="risposta"></div>
+    </div>
+    <script>
+      function invia(){
+		if (document.getElementById('domanda1b').checked && document.getElementById('domanda2c').checked && document.getElementById('domanda3a').checked && document.getElementById('domanda4d').checked){
+			document.getElementById('risposta').innerHTML = "link!";
+		} else {
+			document.getElementById('domande').innerHTML = "<h1>AVETE PERSO</h1>";
+		}
+	}
+	var time = 15;
+
+	 function timer(){
+		time-=1
+		if (time <= 0){
+			document.getElementById('domande').innerHTML = "<h1>AVETE PERSO</h1>";
+			document.getElementById('timer').innerText = 0;
+		} else {
+			document.getElementById('timer').innerText = time;
+		}
+	}
+	setInterval(timer,1000);
+
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
