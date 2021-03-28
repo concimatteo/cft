@@ -24,7 +24,10 @@
 	    </h4>
 	   <br />
 	  <div id="domande">
-		<h4>Estote</h4>
+		<h4>Estote</h4> 
+		  		<!--Inizio domanda 1 con opzioni. Il name identifica il gruppo di risposte, 
+				l'ID invece serve a capire dopo se la domanda è giusta (domanda1a, ecc...) 
+				-->
 		<div class="form-check">
 			<input class="form-check-input" type="radio" name="domanda1" id="domanda1a">
 			<label class="form-check-label" for="domanda1a">
@@ -117,14 +120,20 @@
     </div>
     <script>
       function invia(){
+	      // Questa è la funzione che viene richiamata dal nome! Di fatto controlla se sono selezionate tutte le risposte giuste e se è così fa comparire il link  di vittoria
 		if (document.getElementById('domanda1b').checked && document.getElementById('domanda2c').checked && document.getElementById('domanda3a').checked && document.getElementById('domanda4c').checked){
+			//qui compare il link di vittoria
 			document.getElementById('risposta').innerHTML = "<a href='https://padlet.com/icmm/dlpz570iaxs2jxu4'>https://padlet.com/icmm/dlpz570iaxs2jxu4</a>";
 		} else {
+			//qui fa cancellare tutto il blocco delle domande
 			document.getElementById('domande').innerHTML = "<h1>AVETE PERSO</h1>";
 		}
 	}
+	    
+	//qui imposti il timer!
 	var time = 15;
-
+	
+	  //qui la funzione del timer cancella le domande quando il tempo è scaduto
 	 function timer(){
 		time-=1
 		if (time <= 0){
@@ -134,6 +143,8 @@
 			document.getElementById('timer').innerText = time;
 		}
 	}
+	
+	//qui viene inizializzata la funzione. Un po brutale ma funziona.
 	setInterval(timer,1000);
 
     </script>
